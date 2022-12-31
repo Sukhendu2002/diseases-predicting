@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="text-center">Disease Prediction</h1>
+        <form action="{{ url_for('predict') }}" method="POST">
+            <div class="form-group">
+                <label for="skin_rash">Skin_Rash</label>
+                <input type="checkbox" class="form-control" name="skin_rash" id="skin_rash" value="1">
+            </div>
+            <div class="form-group">
+                <label for="nodal_skin_eruptions">Nodal_Skin_Eruptions</label>
+                <input type="checkbox" class="form-control" name="nodal_skin_eruptions" id="nodal_skin_eruptions"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="continuous_sneezing">Continuous_Sneezing</label>
+                <input type="checkbox" class="form-control" name="continuous_sneezing" id="continuous_sneezing"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="shivering">Shivering</label>
+                <input type="checkbox" class="form-control" name="shivering" id="shivering" value="1">
+            </div>
+            <div class="form-group">
+                <label for="chills">Chills</label>
+                <input type="checkbox" class="form-control" name="chills" id="chills" value="1">
+            </div>
+            <div class="form-group">
+                <label for="joint_pain">Joint_Pain</label>
+                <input type="checkbox" class="form-control" name="joint_pain" id="joint_pain" value="1">
+            </div>
+            <div class="form-group">
+                <label for="stomach_pain">Stomach_Pain</label>
+                <input type="checkbox" class="form-control" name="stomach_pain" id="stomach_pain" value="1">
+            </div>
+            <div class="form-group">
+                <label for="acidity">Acidity</label>
+                <input type="checkbox" class="form-control" name="acidity" id="acidity" value="1">
+            </div>
+            <div class="form-group">
+                <label for="ulcers_on_tongue">Ulcers_On_Tongue</label>
+                <input type="checkbox" class="form-control" name="ulcers_on_tongue" id="ulcers_on_tongue" value="1">
+            </div>
+            <div class="form-group">
+                <label for="muscle_wasting">Muscle_Wasting</label>
+                <input type="checkbox" class="form-control" name="muscle_wasting" id="muscle_wasting" value="1">
+            </div>
+            <div class="form-group">
+                <label for="vomiting">Vomiting</label>
+                <input type="checkbox" class="form-control" name="vomiting" id="vomiting" value="1">
+            </div>
+            <div class="form-group">
+                <label for="burning_micturition">Burning_Micturition</label>
+                <input type="checkbox" class="form-control" name="burning_micturition" id="burning_micturition"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="spotting_ urination">Spotting_ Urination</label>
+                <input type="checkbox" class="form-control" name="spotting_ urination" id="spotting_ urination"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="fatigue">Fatigue</label>
+                <input type="checkbox" class="form-control" name="fatigue" id="fatigue" value="1">
+            </div>
+            <div class="form-group">
+                <label for="weight_gain">Weight_Gain</label>
+                <input type="checkbox" class="form-control" name="weight_gain" id="weight_gain" value="1">
+            </div>
+            <div class="form-group">
+                <label for="anxiety">Anxiety</label>
+                <input type="checkbox" class="form-control" name="anxiety" id="anxiety" value="1">
+            </div>
+            <div class="form-group">
+                <label for="cold_hands_and_feets">Cold_Hands_And_Feets</label>
+                <input type="checkbox" class="form-control" name="cold_hands_and_feets" id="cold_hands_and_feets"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="mood_swings">Mood_Swings</label>
+                <input type="checkbox" class="form-control" name="mood_swings" id="mood_swings" value="1">
+            </div>
+            <div class="form-group">
+                <label for="weight_loss">Weight_Loss</label>
+                <input type="checkbox" class="form-control" name="weight_loss" id="weight_loss" value="1">
+            </div>
+            <div class="form-group">
+                <label for="restlessness">Restlessness</label>
+                <input type="checkbox" class="form-control" name="restlessness" id="restlessness" value="1">
+            </div>
+            <div class="form-group">
+                <label for="lethargy">Lethargy</label>
+                <input type="checkbox" class="form-control" name="lethargy" id="lethargy" value="1">
+            </div>
+            <div class="form-group">
+                <label for="patches_in_throat">Patches_In_Throat</label>
+                <input type="checkbox" class="form-control" name="patches_in_throat" id="patches_in_throat" value="1">
+            </div>
+            <div class="form-group">
+                <label for="irregular_sugar_level">Irregular_Sugar_Level</label>
+                <input type="checkbox" class="form-control" name="irregular_sugar_level" id="irregular_sugar_level"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="cough">Cough</label>
+                <input type="checkbox" class="form-control" name="cough" id="cough" value="1">
+            </div>
+            <div class="form-group">
+                <label for="high_fever">High_Fever</label>
+                <input type="checkbox" class="form-control" name="high_fever" id="high_fever" value="1">
+            </div>
+            <div class="form-group">
+                <label for="sunken_eyes">Sunken_Eyes</label>
+                <input type="checkbox" class="form-control" name="sunken_eyes" id="sunken_eyes" value="1">
+            </div>
+            <div class="form-group">
+                <label for="breathlessness">Breathlessness</label>
+                <input type="checkbox" class="form-control" name="breathlessness" id="breathlessness" value="1">
+            </div>
+            <div class="form-group">
+                <label for="sweating">Sweating</label>
+                <input type="checkbox" class="form-control" name="sweating" id="sweating" value="1">
+            </div>
+            <div class="form-group">
+                <label for="dehydration">Dehydration</label>
+                <input type="checkbox" class="form-control" name="dehydration" id="dehydration" value="1">
+            </div>
+            <div class="form-group">
+                <label for="indigestion">Indigestion</label>
+                <input type="checkbox" class="form-control" name="indigestion" id="indigestion" value="1">
+            </div>
+            <div class="form-group">
+                <label for="headache">Headache</label>
+                <input type="checkbox" class="form-control" name="headache" id="headache" value="1">
+            </div>
+            <div class="form-group">
+                <label for="yellowish_skin">Yellowish_Skin</label>
+                <input type="checkbox" class="form-control" name="yellowish_skin" id="yellowish_skin" value="1">
+            </div>
+            <div class="form-group">
+                <label for="dark_urine">Dark_Urine</label>
+                <input type="checkbox" class="form-control" name="dark_urine" id="dark_urine" value="1">
+            </div>
+            <div class="form-group">
+                <label for="nausea">Nausea</label>
+                <input type="checkbox" class="form-control" name="nausea" id="nausea" value="1">
+            </div>
+            <div class="form-group">
+                <label for="loss_of_appetite">Loss_Of_Appetite</label>
+                <input type="checkbox" class="form-control" name="loss_of_appetite" id="loss_of_appetite" value="1">
+            </div>
+            <div class="form-group">
+                <label for="pain_behind_the_eyes">Pain_Behind_The_Eyes</label>
+                <input type="checkbox" class="form-control" name="pain_behind_the_eyes" id="pain_behind_the_eyes"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="back_pain">Back_Pain</label>
+                <input type="checkbox" class="form-control" name="back_pain" id="back_pain" value="1">
+            </div>
+            <div class="form-group">
+                <label for="constipation">Constipation</label>
+                <input type="checkbox" class="form-control" name="constipation" id="constipation" value="1">
+            </div>
+            <div class="form-group">
+                <label for="abdominal_pain">Abdominal_Pain</label>
+                <input type="checkbox" class="form-control" name="abdominal_pain" id="abdominal_pain" value="1">
+            </div>
+            <div class="form-group">
+                <label for="diarrhoea">Diarrhoea</label>
+                <input type="checkbox" class="form-control" name="diarrhoea" id="diarrhoea" value="1">
+            </div>
+            <div class="form-group">
+                <label for="mild_fever">Mild_Fever</label>
+                <input type="checkbox" class="form-control" name="mild_fever" id="mild_fever" value="1">
+            </div>
+            <div class="form-group">
+                <label for="yellow_urine">Yellow_Urine</label>
+                <input type="checkbox" class="form-control" name="yellow_urine" id="yellow_urine" value="1">
+            </div>
+            <div class="form-group">
+                <label for="yellowing_of_eyes">Yellowing_Of_Eyes</label>
+                <input type="checkbox" class="form-control" name="yellowing_of_eyes" id="yellowing_of_eyes" value="1">
+            </div>
+            <div class="form-group">
+                <label for="acute_liver_failure">Acute_Liver_Failure</label>
+                <input type="checkbox" class="form-control" name="acute_liver_failure" id="acute_liver_failure"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="fluid_overload">Fluid_Overload</label>
+                <input type="checkbox" class="form-control" name="fluid_overload" id="fluid_overload" value="1">
+            </div>
+            <div class="form-group">
+                <label for="swelling_of_stomach">Swelling_Of_Stomach</label>
+                <input type="checkbox" class="form-control" name="swelling_of_stomach" id="swelling_of_stomach"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="swelled_lymph_nodes">Swelled_Lymph_Nodes</label>
+                <input type="checkbox" class="form-control" name="swelled_lymph_nodes" id="swelled_lymph_nodes"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="malaise">Malaise</label>
+                <input type="checkbox" class="form-control" name="malaise" id="malaise" value="1">
+            </div>
+            <div class="form-group">
+                <label for="blurred_and_distorted_vision">Blurred_And_Distorted_Vision</label>
+                <input type="checkbox" class="form-control" name="blurred_and_distorted_vision"
+                    id="blurred_and_distorted_vision" value="1">
+            </div>
+            <div class="form-group">
+                <label for="phlegm">Phlegm</label>
+                <input type="checkbox" class="form-control" name="phlegm" id="phlegm" value="1">
+            </div>
+            <div class="form-group">
+                <label for="throat_irritation">Throat_Irritation</label>
+                <input type="checkbox" class="form-control" name="throat_irritation" id="throat_irritation" value="1">
+            </div>
+            <div class="form-group">
+                <label for="redness_of_eyes">Redness_Of_Eyes</label>
+                <input type="checkbox" class="form-control" name="redness_of_eyes" id="redness_of_eyes" value="1">
+            </div>
+            <div class="form-group">
+                <label for="sinus_pressure">Sinus_Pressure</label>
+                <input type="checkbox" class="form-control" name="sinus_pressure" id="sinus_pressure" value="1">
+            </div>
+            <div class="form-group">
+                <label for="runny_nose">Runny_Nose</label>
+                <input type="checkbox" class="form-control" name="runny_nose" id="runny_nose" value="1">
+            </div>
+            <div class="form-group">
+                <label for="congestion">Congestion</label>
+                <input type="checkbox" class="form-control" name="congestion" id="congestion" value="1">
+            </div>
+            <div class="form-group">
+                <label for="chest_pain">Chest_Pain</label>
+                <input type="checkbox" class="form-control" name="chest_pain" id="chest_pain" value="1">
+            </div>
+            <div class="form-group">
+                <label for="weakness_in_limbs">Weakness_In_Limbs</label>
+                <input type="checkbox" class="form-control" name="weakness_in_limbs" id="weakness_in_limbs" value="1">
+            </div>
+            <div class="form-group">
+                <label for="fast_heart_rate">Fast_Heart_Rate</label>
+                <input type="checkbox" class="form-control" name="fast_heart_rate" id="fast_heart_rate" value="1">
+            </div>
+            <div class="form-group">
+                <label for="pain_during_bowel_movements">Pain_During_Bowel_Movements</label>
+                <input type="checkbox" class="form-control" name="pain_during_bowel_movements"
+                    id="pain_during_bowel_movements" value="1">
+            </div>
+            <div class="form-group">
+                <label for="pain_in_anal_region">Pain_In_Anal_Region</label>
+                <input type="checkbox" class="form-control" name="pain_in_anal_region" id="pain_in_anal_region"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="bloody_stool">Bloody_Stool</label>
+                <input type="checkbox" class="form-control" name="bloody_stool" id="bloody_stool" value="1">
+            </div>
+            <div class="form-group">
+                <label for="irritation_in_anus">Irritation_In_Anus</label>
+                <input type="checkbox" class="form-control" name="irritation_in_anus" id="irritation_in_anus" value="1">
+            </div>
+            <div class="form-group">
+                <label for="neck_pain">Neck_Pain</label>
+                <input type="checkbox" class="form-control" name="neck_pain" id="neck_pain" value="1">
+            </div>
+            <div class="form-group">
+                <label for="dizziness">Dizziness</label>
+                <input type="checkbox" class="form-control" name="dizziness" id="dizziness" value="1">
+            </div>
+            <div class="form-group">
+                <label for="cramps">Cramps</label>
+                <input type="checkbox" class="form-control" name="cramps" id="cramps" value="1">
+            </div>
+            <div class="form-group">
+                <label for="bruising">Bruising</label>
+                <input type="checkbox" class="form-control" name="bruising" id="bruising" value="1">
+            </div>
+            <div class="form-group">
+                <label for="obesity">Obesity</label>
+                <input type="checkbox" class="form-control" name="obesity" id="obesity" value="1">
+            </div>
+            <div class="form-group">
+                <label for="swollen_legs">Swollen_Legs</label>
+                <input type="checkbox" class="form-control" name="swollen_legs" id="swollen_legs" value="1">
+            </div>
+            <div class="form-group">
+                <label for="swollen_blood_vessels">Swollen_Blood_Vessels</label>
+                <input type="checkbox" class="form-control" name="swollen_blood_vessels" id="swollen_blood_vessels"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="puffy_face_and_eyes">Puffy_Face_And_Eyes</label>
+                <input type="checkbox" class="form-control" name="puffy_face_and_eyes" id="puffy_face_and_eyes"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="enlarged_thyroid">Enlarged_Thyroid</label>
+                <input type="checkbox" class="form-control" name="enlarged_thyroid" id="enlarged_thyroid" value="1">
+            </div>
+            <div class="form-group">
+                <label for="brittle_nails">Brittle_Nails</label>
+                <input type="checkbox" class="form-control" name="brittle_nails" id="brittle_nails" value="1">
+            </div>
+            <div class="form-group">
+                <label for="swollen_extremeties">Swollen_Extremeties</label>
+                <input type="checkbox" class="form-control" name="swollen_extremeties" id="swollen_extremeties"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="excessive_hunger">Excessive_Hunger</label>
+                <input type="checkbox" class="form-control" name="excessive_hunger" id="excessive_hunger" value="1">
+            </div>
+            <div class="form-group">
+                <label for="extra_marital_contacts">Extra_Marital_Contacts</label>
+                <input type="checkbox" class="form-control" name="extra_marital_contacts" id="extra_marital_contacts"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="drying_and_tingling_lips">Drying_And_Tingling_Lips</label>
+                <input type="checkbox" class="form-control" name="drying_and_tingling_lips"
+                    id="drying_and_tingling_lips" value="1">
+            </div>
+            <div class="form-group">
+                <label for="slurred_speech">Slurred_Speech</label>
+                <input type="checkbox" class="form-control" name="slurred_speech" id="slurred_speech" value="1">
+            </div>
+            <div class="form-group">
+                <label for="knee_pain">Knee_Pain</label>
+                <input type="checkbox" class="form-control" name="knee_pain" id="knee_pain" value="1">
+            </div>
+            <div class="form-group">
+                <label for="hip_joint_pain">Hip_Joint_Pain</label>
+                <input type="checkbox" class="form-control" name="hip_joint_pain" id="hip_joint_pain" value="1">
+            </div>
+            <div class="form-group">
+                <label for="muscle_weakness">Muscle_Weakness</label>
+                <input type="checkbox" class="form-control" name="muscle_weakness" id="muscle_weakness" value="1">
+            </div>
+            <div class="form-group">
+                <label for="stiff_neck">Stiff_Neck</label>
+                <input type="checkbox" class="form-control" name="stiff_neck" id="stiff_neck" value="1">
+            </div>
+            <div class="form-group">
+                <label for="swelling_joints">Swelling_Joints</label>
+                <input type="checkbox" class="form-control" name="swelling_joints" id="swelling_joints" value="1">
+            </div>
+            <div class="form-group">
+                <label for="movement_stiffness">Movement_Stiffness</label>
+                <input type="checkbox" class="form-control" name="movement_stiffness" id="movement_stiffness" value="1">
+            </div>
+            <div class="form-group">
+                <label for="spinning_movements">Spinning_Movements</label>
+                <input type="checkbox" class="form-control" name="spinning_movements" id="spinning_movements" value="1">
+            </div>
+            <div class="form-group">
+                <label for="loss_of_balance">Loss_Of_Balance</label>
+                <input type="checkbox" class="form-control" name="loss_of_balance" id="loss_of_balance" value="1">
+            </div>
+            <div class="form-group">
+                <label for="unsteadiness">Unsteadiness</label>
+                <input type="checkbox" class="form-control" name="unsteadiness" id="unsteadiness" value="1">
+            </div>
+            <div class="form-group">
+                <label for="weakness_of_one_body_side">Weakness_Of_One_Body_Side</label>
+                <input type="checkbox" class="form-control" name="weakness_of_one_body_side"
+                    id="weakness_of_one_body_side" value="1">
+            </div>
+            <div class="form-group">
+                <label for="loss_of_smell">Loss_Of_Smell</label>
+                <input type="checkbox" class="form-control" name="loss_of_smell" id="loss_of_smell" value="1">
+            </div>
+            <div class="form-group">
+                <label for="bladder_discomfort">Bladder_Discomfort</label>
+                <input type="checkbox" class="form-control" name="bladder_discomfort" id="bladder_discomfort" value="1">
+            </div>
+            <div class="form-group">
+                <label for="foul_smell_of urine">Foul_Smell_Of Urine</label>
+                <input type="checkbox" class="form-control" name="foul_smell_of urine" id="foul_smell_of urine"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="continuous_feel_of_urine">Continuous_Feel_Of_Urine</label>
+                <input type="checkbox" class="form-control" name="continuous_feel_of_urine"
+                    id="continuous_feel_of_urine" value="1">
+            </div>
+            <div class="form-group">
+                <label for="passage_of_gases">Passage_Of_Gases</label>
+                <input type="checkbox" class="form-control" name="passage_of_gases" id="passage_of_gases" value="1">
+            </div>
+            <div class="form-group">
+                <label for="internal_itching">Internal_Itching</label>
+                <input type="checkbox" class="form-control" name="internal_itching" id="internal_itching" value="1">
+            </div>
+            <div class="form-group">
+                <label for="toxic_look_(typhos)">Toxic_Look_(Typhos)</label>
+                <input type="checkbox" class="form-control" name="toxic_look_(typhos)" id="toxic_look_(typhos)"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="depression">Depression</label>
+                <input type="checkbox" class="form-control" name="depression" id="depression" value="1">
+            </div>
+            <div class="form-group">
+                <label for="irritability">Irritability</label>
+                <input type="checkbox" class="form-control" name="irritability" id="irritability" value="1">
+            </div>
+            <div class="form-group">
+                <label for="muscle_pain">Muscle_Pain</label>
+                <input type="checkbox" class="form-control" name="muscle_pain" id="muscle_pain" value="1">
+            </div>
+            <div class="form-group">
+                <label for="altered_sensorium">Altered_Sensorium</label>
+                <input type="checkbox" class="form-control" name="altered_sensorium" id="altered_sensorium" value="1">
+            </div>
+            <div class="form-group">
+                <label for="red_spots_over_body">Red_Spots_Over_Body</label>
+                <input type="checkbox" class="form-control" name="red_spots_over_body" id="red_spots_over_body"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="belly_pain">Belly_Pain</label>
+                <input type="checkbox" class="form-control" name="belly_pain" id="belly_pain" value="1">
+            </div>
+            <div class="form-group">
+                <label for="abnormal_menstruation">Abnormal_Menstruation</label>
+                <input type="checkbox" class="form-control" name="abnormal_menstruation" id="abnormal_menstruation"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="dischromic _patches">Dischromic _Patches</label>
+                <input type="checkbox" class="form-control" name="dischromic _patches" id="dischromic _patches"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="watering_from_eyes">Watering_From_Eyes</label>
+                <input type="checkbox" class="form-control" name="watering_from_eyes" id="watering_from_eyes" value="1">
+            </div>
+            <div class="form-group">
+                <label for="increased_appetite">Increased_Appetite</label>
+                <input type="checkbox" class="form-control" name="increased_appetite" id="increased_appetite" value="1">
+            </div>
+            <div class="form-group">
+                <label for="polyuria">Polyuria</label>
+                <input type="checkbox" class="form-control" name="polyuria" id="polyuria" value="1">
+            </div>
+            <div class="form-group">
+                <label for="family_history">Family_History</label>
+                <input type="checkbox" class="form-control" name="family_history" id="family_history" value="1">
+            </div>
+            <div class="form-group">
+                <label for="mucoid_sputum">Mucoid_Sputum</label>
+                <input type="checkbox" class="form-control" name="mucoid_sputum" id="mucoid_sputum" value="1">
+            </div>
+            <div class="form-group">
+                <label for="rusty_sputum">Rusty_Sputum</label>
+                <input type="checkbox" class="form-control" name="rusty_sputum" id="rusty_sputum" value="1">
+            </div>
+            <div class="form-group">
+                <label for="lack_of_concentration">Lack_Of_Concentration</label>
+                <input type="checkbox" class="form-control" name="lack_of_concentration" id="lack_of_concentration"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="visual_disturbances">Visual_Disturbances</label>
+                <input type="checkbox" class="form-control" name="visual_disturbances" id="visual_disturbances"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="receiving_blood_transfusion">Receiving_Blood_Transfusion</label>
+                <input type="checkbox" class="form-control" name="receiving_blood_transfusion"
+                    id="receiving_blood_transfusion" value="1">
+            </div>
+            <div class="form-group">
+                <label for="receiving_unsterile_injections">Receiving_Unsterile_Injections</label>
+                <input type="checkbox" class="form-control" name="receiving_unsterile_injections"
+                    id="receiving_unsterile_injections" value="1">
+            </div>
+            <div class="form-group">
+                <label for="coma">Coma</label>
+                <input type="checkbox" class="form-control" name="coma" id="coma" value="1">
+            </div>
+            <div class="form-group">
+                <label for="stomach_bleeding">Stomach_Bleeding</label>
+                <input type="checkbox" class="form-control" name="stomach_bleeding" id="stomach_bleeding" value="1">
+            </div>
+            <div class="form-group">
+                <label for="distention_of_abdomen">Distention_Of_Abdomen</label>
+                <input type="checkbox" class="form-control" name="distention_of_abdomen" id="distention_of_abdomen"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="history_of_alcohol_consumption">History_Of_Alcohol_Consumption</label>
+                <input type="checkbox" class="form-control" name="history_of_alcohol_consumption"
+                    id="history_of_alcohol_consumption" value="1">
+            </div>
+            <div class="form-group">
+                <label for="fluid_overload.1">Fluid_Overload.1</label>
+                <input type="checkbox" class="form-control" name="fluid_overload.1" id="fluid_overload.1" value="1">
+            </div>
+            <div class="form-group">
+                <label for="blood_in_sputum">Blood_In_Sputum</label>
+                <input type="checkbox" class="form-control" name="blood_in_sputum" id="blood_in_sputum" value="1">
+            </div>
+            <div class="form-group">
+                <label for="prominent_veins_on_calf">Prominent_Veins_On_Calf</label>
+                <input type="checkbox" class="form-control" name="prominent_veins_on_calf" id="prominent_veins_on_calf"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="palpitations">Palpitations</label>
+                <input type="checkbox" class="form-control" name="palpitations" id="palpitations" value="1">
+            </div>
+            <div class="form-group">
+                <label for="painful_walking">Painful_Walking</label>
+                <input type="checkbox" class="form-control" name="painful_walking" id="painful_walking" value="1">
+            </div>
+            <div class="form-group">
+                <label for="pus_filled_pimples">Pus_Filled_Pimples</label>
+                <input type="checkbox" class="form-control" name="pus_filled_pimples" id="pus_filled_pimples" value="1">
+            </div>
+            <div class="form-group">
+                <label for="blackheads">Blackheads</label>
+                <input type="checkbox" class="form-control" name="blackheads" id="blackheads" value="1">
+            </div>
+            <div class="form-group">
+                <label for="scurring">Scurring</label>
+                <input type="checkbox" class="form-control" name="scurring" id="scurring" value="1">
+            </div>
+            <div class="form-group">
+                <label for="skin_peeling">Skin_Peeling</label>
+                <input type="checkbox" class="form-control" name="skin_peeling" id="skin_peeling" value="1">
+            </div>
+            <div class="form-group">
+                <label for="silver_like_dusting">Silver_Like_Dusting</label>
+                <input type="checkbox" class="form-control" name="silver_like_dusting" id="silver_like_dusting"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="small_dents_in_nails">Small_Dents_In_Nails</label>
+                <input type="checkbox" class="form-control" name="small_dents_in_nails" id="small_dents_in_nails"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="inflammatory_nails">Inflammatory_Nails</label>
+                <input type="checkbox" class="form-control" name="inflammatory_nails" id="inflammatory_nails" value="1">
+            </div>
+            <div class="form-group">
+                <label for="blister">Blister</label>
+                <input type="checkbox" class="form-control" name="blister" id="blister" value="1">
+            </div>
+            <div class="form-group">
+                <label for="red_sore_around_nose">Red_Sore_Around_Nose</label>
+                <input type="checkbox" class="form-control" name="red_sore_around_nose" id="red_sore_around_nose"
+                    value="1">
+            </div>
+            <div class="form-group">
+                <label for="yellow_crust_ooze">Yellow_Crust_Ooze</label>
+                <input type="checkbox" class="form-control" name="yellow_crust_ooze" id="yellow_crust_ooze" value="1">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+
+        </form>
+
+    </div>
+    <!-- Show the result -->
+
+
+</body>
+
+</html>
